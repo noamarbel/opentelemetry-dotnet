@@ -16,14 +16,30 @@
 
 namespace OpenTelemetry.Metrics.Export
 {
+    /// <summary>
+    /// Metric data that encapsulates an Int64 summary Aggregator data,
+    /// including the count, sum, min and max of the measured data.
+    /// </summary>
     public class Int64SummaryData : MetricData
     {
+        /// <summary>
+        /// Gets or Sets the number of measurements used for the summary data.
+        /// </summary>
         public long Count { get; set; }
 
+        /// <summary>
+        /// Gets or Sets the sum represented by this data object.
+        /// </summary>
         public long Sum { get; set; }
 
+        /// <summary>
+        /// Gets or Sets the minimal value represented within this data object.
+        /// </summary>
         public long Min { get; set; }
 
+        /// <summary>
+        /// Gets or Sets the maximum value represented within this data object.
+        /// </summary>
         public long Max { get; set; }
     }
 }

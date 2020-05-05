@@ -15,7 +15,6 @@
 // </copyright>
 
 using System;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using OpenTelemetry.Metrics.Export;
 
@@ -29,12 +28,13 @@ namespace OpenTelemetry.Metrics.Aggregators
         private double sum;
         private double checkPoint;
 
+        /// <inheritdoc />
         public override void Checkpoint()
         {
-            // checkpoints the current running sum into checkpoint, and starts counting again.
             this.checkPoint = Interlocked.Exchange(ref this.sum, 0.0);
         }
 
+        /// <inheritdoc />
         public override MetricData ToMetricData()
         {
             return new DoubleSumData
@@ -44,11 +44,13 @@ namespace OpenTelemetry.Metrics.Aggregators
             };
         }
 
+        /// <inheritdoc />
         public override AggregationType GetAggregationType()
         {
             return AggregationType.DoubleSum;
         }
 
+        /// <inheritdoc />
         public override void Update(double value)
         {
             // Adds value to the running total in a thread safe manner.

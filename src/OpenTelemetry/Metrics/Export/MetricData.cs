@@ -19,10 +19,23 @@ using System.Collections.Generic;
 
 namespace OpenTelemetry.Metrics.Export
 {
+    /// <summary>
+    /// Defines the abstract base class for Metric data.
+    /// Metric data provide a Timestamp, and an optional set of label/value pairs.
+    /// </summary>
     public abstract class MetricData
     {
+        /// <summary>
+        /// Gets or Sets the timestamp for this data object.
+        /// </summary>
         public DateTime Timestamp { get; set; }
 
+        /// <summary>
+        /// Gets or Sets the Metric's labels as key/value pairs.
+        /// </summary>
+        /// <remarks>As defined in the specification
+        /// "A Label is the term used to refer to a key-value
+        /// attribute associated with a metric event".</remarks>
         public IEnumerable<KeyValuePair<string, string>> Labels { get; set; }
     }
 }

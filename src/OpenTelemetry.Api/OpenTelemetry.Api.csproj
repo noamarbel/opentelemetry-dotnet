@@ -5,6 +5,10 @@
     <RootNamespace>OpenTelemetry</RootNamespace>
     <DefineConstants>$(DefineConstants);API</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net45|AnyCPU'">
+    <NoWarn></NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Trace\Internal\**" />
     <EmbeddedResource Remove="Trace\Internal\**" />

@@ -16,8 +16,14 @@
 
 namespace OpenTelemetry.Metrics.Export
 {
+    /// <summary>
+    /// Metric data that encapsulates a Double Sum Aggregator data.
+    /// </summary>
     public class DoubleSumData : MetricData
     {
+        /// <summary>
+        /// Gets or Sets the sum represented by this data object.
+        /// </summary>
         public double Sum { get; set; }
     }
 }

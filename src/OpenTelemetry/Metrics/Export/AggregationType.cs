@@ -16,6 +16,9 @@
 
 namespace OpenTelemetry.Metrics.Export
 {
+    /// <summary>
+    /// Defines the possible aggregation types.
+    /// </summary>
     public enum AggregationType
     {
         /// <summary>
