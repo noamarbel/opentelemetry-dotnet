@@ -16,8 +16,14 @@
 
 namespace OpenTelemetry.Metrics.Export
 {
+    /// <summary>
+    /// Metric data that encapsulates an Int64 Sum Aggregator data.
+    /// </summary>
     public class Int64SumData : MetricData
     {
+        /// <summary>
+        /// Gets or Sets the sum represented by this data object.
+        /// </summary>
         public long Sum { get; set; }
     }
 }

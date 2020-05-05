@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <NoWarn>$(NoWarn),1591</NoWarn>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>

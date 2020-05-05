@@ -25,20 +25,23 @@ namespace OpenTelemetry.Metrics.Aggregators
     /// </summary>
     public class Int64MeasureMinMaxSumCountAggregator : Aggregator<long>
     {
+        private readonly object updateLock = new object();
         private LongSummary summary = new LongSummary();
         private LongSummary checkPoint = new LongSummary();
-        private object updateLock = new object();
 
+        /// <inheritdoc />
         public override void Checkpoint()
         {
             this.checkPoint = Interlocked.Exchange(ref this.summary, new LongSummary());
         }
 
+        /// <inheritdoc />
         public override AggregationType GetAggregationType()
         {
             return AggregationType.Int64Summary;
         }
 
+        /// <inheritdoc />
         public override MetricData ToMetricData()
         {
             return new Int64SummaryData
@@ -51,6 +54,7 @@ namespace OpenTelemetry.Metrics.Aggregators
             };
         }
 
+        /// <inheritdoc />
         public override void Update(long value)
         {
             lock (this.updateLock)
